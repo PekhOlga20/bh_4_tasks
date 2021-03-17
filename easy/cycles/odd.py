@@ -18,7 +18,13 @@ odd_in_list([2, -1, 4, True, None, 6]) -> [2, 4, 6]
 
 def odd_in_list(some_list: list) -> list:
     odd_list = []
-    # TODO тут написать цикл for
+    for item in some_list:
+        if isinstance(item, int):
+            if isinstance(item, bool):
+                continue
+            if item % 2 != 0:
+                continue
+            odd_list.append(item)
     return odd_list
 
 
