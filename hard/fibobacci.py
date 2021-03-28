@@ -26,7 +26,13 @@
 
 
 def fibonacci(n: int) -> int:
-    pass
+    fib1 = fib2 = 1
+    n = int(input('Введите номер элемента, значение которого хотите получить:\n'))
+    for i in range(n - 2):
+        fib_sum = fib1 + fib2
+        fib1 = fib2
+        fib2 = fib_sum
+    return fib2
 
 
 if __name__ == '__main__':

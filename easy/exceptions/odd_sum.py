@@ -12,26 +12,28 @@ TypeError с сообщением "Все элементы списка долж
 """
 
 def odd_sum(int_list: list) -> int:
-    odd_list =[]
-    for item in int_list:
-        if isinstance(item, int):
-            if isinstance(item, bool):
-                continue
-            if item % 2 == 0:
-                continue
-            odd_list += item
-    else:
-        raise TypeError(f"Все элементы списка должны быть целыми числами")
-    return odd_list
+    if not isinstance(int_list, list):
+        raise TypeError("На вход должен подаваться список")
+    result = 0
+    for num in int_list:
+        if isinstance(num, int) and not isinstance(num, bool):
+            if num % 2 != 0:
+                result += num
+            continue
+    return result
 
 
 if __name__ == '__main__':
-    int_list = []
+    assert odd_sum([1, 2, 4, 3, 7]) == 11
+
     try:
-        print(int)
+        int_list = [11.1255, 2.2]
+        odd_sum(int_list)
+
     except TypeError as exc:
-        print (f"Все элементы списка должны быть целыми числами")
+        print(exc)
+        print("Все элементы списка должны быть целыми числами")
     else:
-        print(f"Решено!")
+        print("Решено!")
     finally:
-        print(f"Я выполняюсь в любом случае")
+        print("Я выполняюсь в любом случае")
